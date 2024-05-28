@@ -30,6 +30,22 @@ console.log(hc)
 let humanScore = 0
 let computerScore = 0
 
-function playRound(hc, cc) {
-    
+function playRound(cc, hc) {
+    if (cc === hc) {
+        y = "It's a tie, bruh"
+    }
+    else if (cc === "rock" && hc === "paper" || cc === "paper" && hc === "scissors" ||  cc === "scissors" && hc === "rock") {
+        y = `Ughh, You've won. Take a point. (${hc} beats ${cc})`
+    }
+    else if (cc === "rock" && hc === "scissors" || cc ==="paper" && hc === "rock" || cc === "scissors" && hc === "paper") {
+        y = `Yayy, I win! (${cc} beats ${hc})`
+    }
+    else {
+        y = "I might've fucked up my code again"
+    }
+    return y
 }
+
+let result = playRound(cc, hc)
+
+console.log(result)
