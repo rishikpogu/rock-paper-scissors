@@ -24,8 +24,8 @@ function getHumanChoice() {
 
 let hc = getHumanChoice().toLowerCase()
 
-console.log(cc)
-console.log(hc)
+console.log(`my choice ${cc}`)
+console.log(`your choice ${hc}`)
 
 let humanScore = 0
 let computerScore = 0
@@ -36,9 +36,11 @@ function playRound(cc, hc) {
     }
     else if (cc === "rock" && hc === "paper" || cc === "paper" && hc === "scissors" ||  cc === "scissors" && hc === "rock") {
         y = `Ughh, You've won. Take a point. (${hc} beats ${cc})`
+        humanScore++
     }
     else if (cc === "rock" && hc === "scissors" || cc ==="paper" && hc === "rock" || cc === "scissors" && hc === "paper") {
         y = `Yayy, I win! (${cc} beats ${hc})`
+        computerScore++
     }
     else {
         y = "I might've fucked up my code again"
@@ -49,3 +51,5 @@ function playRound(cc, hc) {
 let result = playRound(cc, hc)
 
 console.log(result)
+console.log(`my score ${computerScore}`)
+console.log(`your score ${humanScore}`)
