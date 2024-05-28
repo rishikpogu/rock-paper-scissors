@@ -14,8 +14,13 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
+let cc = getComputerChoice()
 
+function getHumanChoice() {
+    return prompt("What do you chose to defeat me?")  
 }
 
-console.log(getComputerChoice())
+let hc = getHumanChoice()
+
+console.log(cc)
+console.log(hc)
