@@ -3,12 +3,19 @@ function getComputerChoice() {
     if (x==0) {
         return "rock"
     }
-    if (x==1) {
+    else if (x==1) {
         return "paper"
     }
-    if (x==2) {
+    else if (x==2) {
         return "scissors"
     }
+    else {
+        return "i fked up my fn"
+    }
+}
+
+function getHumanChoice() {
+
 }
 
 console.log(getComputerChoice())
