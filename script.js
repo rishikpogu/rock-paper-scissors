@@ -16,40 +16,60 @@ function getComputerChoice() {
     return y
 }
 
-let cc = getComputerChoice()
+let cc
 
 function getHumanChoice() {
     return prompt("What do you chose to defeat me?")  
 }
 
-let hc = getHumanChoice().toLowerCase()
-
-console.log(`my choice ${cc}`)
-console.log(`your choice ${hc}`)
+let hc
 
 let humanScore = 0
 let computerScore = 0
 
-function playRound(cc, hc) {
-    if (cc === hc) {
-        y = "It's a tie, bruh"
+function playGame() {
+    function playRound(cc, hc) {
+        cc = getComputerChoice()
+        hc = getHumanChoice().toLowerCase()
+    
+        if (cc === hc) {
+            y = "It's a tie, bruh"
+        }
+        else if (cc === "rock" && hc === "paper" || cc === "paper" && hc === "scissors" ||  cc === "scissors" && hc === "rock") {
+            y = `Ughh, You've won. Take a point. (${hc} beats ${cc})`
+            humanScore++
+        }
+        else if (cc === "rock" && hc === "scissors" || cc ==="paper" && hc === "rock" || cc === "scissors" && hc === "paper") {
+            y = `Yayy, I win! (${cc} beats ${hc})`
+            computerScore++
+        }
+        else {
+            y = "I might've fucked up my code again"
+        }
+        console.log(`my choice ${cc}`)
+        console.log(`your choice ${hc}`)
+        console.log(y)
+        console.log(`my score ${computerScore}`)
+        console.log(`your score ${humanScore}`)
     }
-    else if (cc === "rock" && hc === "paper" || cc === "paper" && hc === "scissors" ||  cc === "scissors" && hc === "rock") {
-        y = `Ughh, You've won. Take a point. (${hc} beats ${cc})`
-        humanScore++
+
+    for (let z=1; z<6; z++) {
+        console.log(`Round ${z}`)
+        playRound(cc, hc)
     }
-    else if (cc === "rock" && hc === "scissors" || cc ==="paper" && hc === "rock" || cc === "scissors" && hc === "paper") {
-        y = `Yayy, I win! (${cc} beats ${hc})`
-        computerScore++
+
+    if (humanScore === computerScore) {
+        console.log("C'mon, a tie finally, bruhhh.")
+    }
+    else if (humanScore > computerScore) {
+        console.log(`Congo, You win by ${humanScore - computerScore} pts. I'll comeback stronger!!!`)
+    }
+    else if (humanScore < computerScore) {
+        console.log(`Yayy! I win by ${computerScore - humanScore} pts. Comeback stronger soldier. Respect++`)
     }
     else {
-        y = "I might've fucked up my code again"
+        console.log("I'm sure I'm not that worse to fk up my code thrice")
     }
-    return y
 }
 
-let result = playRound(cc, hc)
-
-console.log(result)
-console.log(`my score ${computerScore}`)
-console.log(`your score ${humanScore}`)
+playGame()
