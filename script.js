@@ -1,17 +1,19 @@
 function getComputerChoice() {
     let x = Math.floor(Math.random()*3)
+    let y
     if (x==0) {
-        return "rock"
+        y = "rock"
     }
     else if (x==1) {
-        return "paper"
+        y = "paper"
     }
     else if (x==2) {
-        return "scissors"
+        y = "scissors"
     }
     else {
-        return "i fked up my fn"
+        y = "i fked up my fn"
     }
+    return y
 }
 
 let cc = getComputerChoice()
@@ -20,7 +22,14 @@ function getHumanChoice() {
     return prompt("What do you chose to defeat me?")  
 }
 
-let hc = getHumanChoice()
+let hc = getHumanChoice().toLowerCase()
 
 console.log(cc)
 console.log(hc)
+
+let humanScore = 0
+let computerScore = 0
+
+function playRound(hc, cc) {
+    
+}
