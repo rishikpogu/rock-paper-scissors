@@ -53,7 +53,7 @@ function playGame() {
         console.log(`your score ${humanScore}`)
     }
 
-    
+    do playRound(cc, hc); while (computerScore < 5 && humanScore < 5)
 
     if (humanScore === computerScore) {
         console.log("C'mon, a tie finally, bruhhh.")
