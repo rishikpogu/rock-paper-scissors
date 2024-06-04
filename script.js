@@ -17,43 +17,13 @@ function getComputerChoice() {
 }
 
 let cc
-
-function getHumanChoice() {
-    return prompt("What do you chose to defeat me?")  
-}
-
 let hc
-
 let humanScore = 0
 let computerScore = 0
 
-function playGame() {
-    function playRound(cc, hc) {
-        cc = getComputerChoice()
-        hc = getHumanChoice().toLowerCase()
+function result() {
     
-        if (cc === hc) {
-            y = "It's a tie, bruh"
-        }
-        else if (cc === "rock" && hc === "paper" || cc === "paper" && hc === "scissors" ||  cc === "scissors" && hc === "rock") {
-            y = `Ughh, You've won. Take a point. (${hc} beats ${cc})`
-            humanScore++
-        }
-        else if (cc === "rock" && hc === "scissors" || cc ==="paper" && hc === "rock" || cc === "scissors" && hc === "paper") {
-            y = `Yayy, I win! (${cc} beats ${hc})`
-            computerScore++
-        }
-        else {
-            y = "I might've fucked up my code again"
-        }
-        console.log(`my choice ${cc}`)
-        console.log(`your choice ${hc}`)
-        console.log(y)
-        console.log(`my score ${computerScore}`)
-        console.log(`your score ${humanScore}`)
-    }
-
-    do playRound(cc, hc); while (computerScore < 5 && humanScore < 5)
+    // do playRound(cc, hc); while (computerScore < 5 && humanScore < 5)
 
     if (humanScore === computerScore) {
         console.log("C'mon, a tie finally, bruhhh.")
@@ -69,4 +39,59 @@ function playGame() {
     }
 }
 
-playGame()
+let cchoice = document.querySelector('#cchoice')
+let hchoice = document.querySelector('#hchoice')
+let round = document.querySelector('#round')
+let cscore = document.querySelector('#cscore')
+let hscore = document.querySelector('#hscore')
+
+function playRound(cc, hc) {
+    cc = getComputerChoice()
+    // hc = getHumanChoice().toLowerCase()
+
+    if (cc === hc) {
+        y = "It's a tie, bruh"
+    }
+    else if (cc === "rock" && hc === "paper" || cc === "paper" && hc === "scissors" ||  cc === "scissors" && hc === "rock") {
+        y = `Ughh, You've won. Take a point. (${hc} beats ${cc})`
+        humanScore++
+    }
+    else if (cc === "rock" && hc === "scissors" || cc ==="paper" && hc === "rock" || cc === "scissors" && hc === "paper") {
+        y = `Yayy, I win! (${cc} beats ${hc})`
+        computerScore++
+    }
+    else {
+        y = "I might've fucked up my code again"
+    }
+
+    cchoice.textContent = `My Choice: ${cc}`
+    hchoice.textContent = `Your Choice: ${hc}`
+    round.textContent = `${y}`
+    cscore.textContent = `My Score: ${computerScore}`
+    hscore.textContent = `Your Score: ${humanScore}`
+    // console.log(`my choice ${cc}`)
+    // console.log(`your choice ${hc}`)
+    // console.log(y)
+    // console.log(`my score ${computerScore}`)
+    // console.log(`your score ${humanScore}`)
+}
+
+let btn = document.querySelector('#buttons');
+btn.addEventListener('click', (event) => {
+    let target = event.target;
+    
+    switch(target.id) {
+        case 'r':
+            hc = 'rock';
+            playRound(cc, hc);
+            break;
+        case 'p':
+            hc = 'paper';
+            playRound(cc, hc);
+            break;
+        case 's':
+            hc = 'scissors';
+            playRound(cc, hc);
+            break;
+    }
+});
