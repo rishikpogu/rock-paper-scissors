@@ -53,10 +53,7 @@ function playGame() {
         console.log(`your score ${humanScore}`)
     }
 
-    for (let z=1; z<6; z++) {
-        console.log(`Round ${z}`)
-        playRound(cc, hc)
-    }
+    
 
     if (humanScore === computerScore) {
         console.log("C'mon, a tie finally, bruhhh.")
