@@ -26,18 +26,18 @@ function result() {
     // do playRound(cc, hc); while (computerScore < 5 && humanScore < 5)
 
     if (humanScore === computerScore) {
-        console.log("C'mon, a tie finally, bruhhh.")
+        final.textContent = "C'mon, a tie finally, bruhhh."
     }
     else if (humanScore > computerScore) {
-        console.log(`Congo, You win by ${humanScore - computerScore} pts. I'll comeback stronger!!!`)
+        final.textContent = `Congo, You win by ${humanScore - computerScore} pts. I'll comeback stronger!!!`
     }
     else if (humanScore < computerScore) {
-        console.log(`Yayy! I win by ${computerScore - humanScore} pts. Comeback stronger soldier. Respect++`)
+        final.textContent = `Yayy! I win by ${computerScore - humanScore} pts. Comeback stronger soldier. Respect++`
     }
     else {
         console.log("I'm sure I'm not that worse to fk up my code thrice")
     }
-    console.log("Press any button to restart!")
+    reset.textContent = "Press any button to restart!"
 }
 
 let cchoice = document.querySelector('#cchoice')
@@ -45,8 +45,12 @@ let hchoice = document.querySelector('#hchoice')
 let round = document.querySelector('#round')
 let cscore = document.querySelector('#cscore')
 let hscore = document.querySelector('#hscore')
+let final = document.querySelector('#final')
+let reset = document.querySelector('#reset')
 
 function playRound(cc, hc) {
+    final.textContent = ''
+    reset.textContent = ''
     cc = getComputerChoice()
     // hc = getHumanChoice().toLowerCase()
 
