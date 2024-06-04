@@ -37,6 +37,7 @@ function result() {
     else {
         console.log("I'm sure I'm not that worse to fk up my code thrice")
     }
+    console.log("Press any button to restart!")
 }
 
 let cchoice = document.querySelector('#cchoice')
@@ -66,7 +67,7 @@ function playRound(cc, hc) {
 
     cchoice.textContent = `My Choice: ${cc}`
     hchoice.textContent = `Your Choice: ${hc}`
-    round.textContent = `${y}`
+    round.textContent = `Commentary: ${y}`
     cscore.textContent = `My Score: ${computerScore}`
     hscore.textContent = `Your Score: ${humanScore}`
     // console.log(`my choice ${cc}`)
@@ -74,6 +75,12 @@ function playRound(cc, hc) {
     // console.log(y)
     // console.log(`my score ${computerScore}`)
     // console.log(`your score ${humanScore}`)
+
+    if (computerScore === 5 || humanScore === 5) {
+        result()
+        computerScore = 0
+        humanScore = 0
+    }
 }
 
 let btn = document.querySelector('#buttons');
